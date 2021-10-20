@@ -2,7 +2,7 @@ import java.util.ArrayList;
 
 public class BinaryTreePrint   {
 	
-	BinaryTreeNode<Integer> root;
+	BinaryTreeNode root;
 
 	/*
 	 * This method requires that there is a class BinaryTreeNode 
@@ -24,10 +24,10 @@ public class BinaryTreePrint   {
 
 	private void printT(ArrayList<BinaryTreeNode> parent, int left) {
 		ArrayList<BinaryTreeNode> children = new ArrayList<BinaryTreeNode>();
-		BinaryTreeNode<Integer> current;
+		BinaryTreeNode current;
 		boolean moreNodes = false;
 		boolean firstNode = true;
-		BinaryTreeNode<Integer> dummy = new BinaryTreeNode(0);
+		BinaryTreeNode dummy = new BinaryTreeNode(0);
 
 		int dist = 0;
 		System.out.println();

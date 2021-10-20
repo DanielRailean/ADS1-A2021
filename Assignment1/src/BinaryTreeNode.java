@@ -1,20 +1,24 @@
-public class  BinaryTreeNode<T> {
+import java.util.Objects;
 
-    private T element;
+public class  BinaryTreeNode {
+
+    private int element;
     private BinaryTreeNode leftChild;
     private BinaryTreeNode rightChild;
 
-    public BinaryTreeNode(T data) {
+    public BinaryTreeNode(int data) {
         element = data;
         leftChild = null;
         rightChild = null;
     }
 
-    public T getElement() {
+    public int getElement()
+    {
         return element;
     }
 
-    public void setElement(T element) {
+    public void setElement(int element)
+    {
         this.element = element;
     }
 
@@ -32,5 +36,17 @@ public class  BinaryTreeNode<T> {
 
     public void addRightChild(BinaryTreeNode rightChild) {
         this.rightChild = rightChild;
+    }
+
+    @Override public boolean equals(Object o)
+    {
+        if (this == o)
+            return true;
+        return false;
+    }
+
+    @Override public int hashCode()
+    {
+        return Objects.hash(element, leftChild, rightChild);
     }
 }

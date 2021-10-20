@@ -11,13 +11,12 @@ public class BinaryTreeNodeTest {
 
     @BeforeEach
     public void initEach(){
-        node = new BinaryTreeNode<Integer>(new Integer(10));
+        node = new BinaryTreeNode(10);
     }
 
     @Test
     public void CheckNullInitial(){
-        Integer element = (Integer) node.getElement();
-        assertTrue(element==10);
+        assertTrue(node.getElement()==10);
         assertTrue(node.getRightChild()==null);
         assertTrue(node.getLeftChild()==null);
     }
@@ -28,7 +27,7 @@ public class BinaryTreeNodeTest {
         node.addLeftChild(left);
         assertFalse(node.getLeftChild()==null);
         assertTrue(node.getRightChild()==null);
-        assertTrue(node.getLeftChild().getElement().getValue()==11);
+        assertTrue(node.getLeftChild().getElement()==11);
     }
     @Test
     public void CheckRightChild(){
@@ -36,18 +35,28 @@ public class BinaryTreeNodeTest {
         node.addRightChild(Right);
         assertFalse(node.getRightChild()==null);
         assertTrue(node.getLeftChild()==null);
-        assertTrue(node.getRightChild().getElement().getValue()==16);
+        assertTrue(node.getRightChild().getElement()==16);
     }
     @Test
     public void CheckElement(){
-        assertFalse(node.getElement().getValue()==11);
-        assertTrue(node.getElement().getValue()==10);
+        assertFalse(node.getElement()==11);
+        assertTrue(node.getElement()==10);
 
-        node.setElement(new E(11));
+        node.setElement(11);
 
-        assertTrue(node.getElement().getValue()==11);
-        assertFalse(node.getElement().getValue()==10);
+        assertTrue(node.getElement()==11);
+        assertFalse(node.getElement()==10);
     }
+    @Test
+    public void CheckEquals(){
+        BinaryTreeNode node2 = new BinaryTreeNode(10);
+        assertFalse(node.equals(node2));
+        assertFalse(node2.equals(node));
+
+        assertTrue(node.equals(node));
+        assertTrue(node2.equals(node2));
+    }
+
 
 
 
