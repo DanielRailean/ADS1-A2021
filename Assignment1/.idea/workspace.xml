@@ -20,9 +20,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b1c36248-489f-436d-b560-9c79e814f56d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Test/BinarySearchTreeTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assignment1.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Assignment1.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test/BinarySearchTreeTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Test/BinarySearchTreeTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/BinarySearchTree.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BinarySearchTree.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/BinaryTree.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BinaryTree.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BinaryTreePrint.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BinaryTreePrint.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,12 +57,18 @@
     <property name="Repository.Attach.JavaDocs" value="false" />
     <property name="Repository.Attach.Sources" value="false" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../lib/JUnit5" />
+    <property name="project.structure.last.edited" value="Global Libraries" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.22906403" />
     <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors" />
   </component>
-  <component name="RunManager" selected="JUnit.BinarySearchTreeTest.checkBalance">
+  <component name="RunManager" selected="JUnit.BinarySearchTreeTest.bulkCheckReBalance">
     <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -70,51 +80,51 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="BinarySearchTreeTest.CheckInsert" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="BinarySearchTreeTest.bulkCheckReBalance" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Assignment1" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="BinarySearchTreeTest" />
-      <option name="METHOD_NAME" value="CheckInsert" />
+      <option name="METHOD_NAME" value="bulkCheckReBalance" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="BinarySearchTreeTest.Remove" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="BinarySearchTreeTest.checkReBalance" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Assignment1" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="BinarySearchTreeTest" />
-      <option name="METHOD_NAME" value="Remove" />
+      <option name="METHOD_NAME" value="checkReBalance" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="BinarySearchTreeTest.checkBalance" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="BinarySearchTreeTest.checkRotateLeft" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Assignment1" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="BinarySearchTreeTest" />
-      <option name="METHOD_NAME" value="checkBalance" />
+      <option name="METHOD_NAME" value="checkRotateLeft" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="BinarySearchTreeTest.findMax" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="BinarySearchTreeTest.checkRotateRight" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Assignment1" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="BinarySearchTreeTest" />
-      <option name="METHOD_NAME" value="findMax" />
+      <option name="METHOD_NAME" value="checkRotateRight" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="BinarySearchTreeTest.findMin" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="BinarySearchTreeTest.checkSingleReBalance" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Assignment1" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="BinarySearchTreeTest" />
-      <option name="METHOD_NAME" value="findMin" />
+      <option name="METHOD_NAME" value="checkSingleReBalance" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -122,11 +132,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.BinarySearchTreeTest.checkBalance" />
-        <item itemvalue="JUnit.BinarySearchTreeTest.Remove" />
-        <item itemvalue="JUnit.BinarySearchTreeTest.findMin" />
-        <item itemvalue="JUnit.BinarySearchTreeTest.findMax" />
-        <item itemvalue="JUnit.BinarySearchTreeTest.CheckInsert" />
+        <item itemvalue="JUnit.BinarySearchTreeTest.bulkCheckReBalance" />
+        <item itemvalue="JUnit.BinarySearchTreeTest.checkSingleReBalance" />
+        <item itemvalue="JUnit.BinarySearchTreeTest.checkReBalance" />
+        <item itemvalue="JUnit.BinarySearchTreeTest.checkRotateLeft" />
+        <item itemvalue="JUnit.BinarySearchTreeTest.checkRotateRight" />
       </list>
     </recent_temporary>
   </component>
@@ -139,6 +149,9 @@
       <option name="presentableId" value="Default" />
       <updated>1634712443038</updated>
       <workItem from="1634712444243" duration="25510000" />
+      <workItem from="1634748856702" duration="10495000" />
+      <workItem from="1634759979166" duration="643000" />
+      <workItem from="1634760965354" duration="9171000" />
     </task>
     <servers />
   </component>
@@ -155,64 +168,7 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="642" y="134" key="#com.intellij.ide.util.MemberChooser" timestamp="1634733411646">
-      <screen x="0" y="0" width="1676" height="902" />
-    </state>
-    <state x="642" y="134" key="#com.intellij.ide.util.MemberChooser/0.0.1676.902@0.0.1676.902" timestamp="1634733411646" />
-    <state width="1632" height="238" key="GridCell.Tab.0.bottom" timestamp="1634746168775">
-      <screen x="0" y="0" width="1676" height="902" />
-    </state>
-    <state width="1632" height="238" key="GridCell.Tab.0.bottom/0.0.1676.902@0.0.1676.902" timestamp="1634746168775" />
-    <state width="1632" height="238" key="GridCell.Tab.0.center" timestamp="1634746168775">
-      <screen x="0" y="0" width="1676" height="902" />
-    </state>
-    <state width="1632" height="238" key="GridCell.Tab.0.center/0.0.1676.902@0.0.1676.902" timestamp="1634746168775" />
-    <state width="1632" height="238" key="GridCell.Tab.0.left" timestamp="1634746168775">
-      <screen x="0" y="0" width="1676" height="902" />
-    </state>
-    <state width="1632" height="238" key="GridCell.Tab.0.left/0.0.1676.902@0.0.1676.902" timestamp="1634746168775" />
-    <state width="1632" height="238" key="GridCell.Tab.0.right" timestamp="1634746168775">
-      <screen x="0" y="0" width="1676" height="902" />
-    </state>
-    <state width="1632" height="238" key="GridCell.Tab.0.right/0.0.1676.902@0.0.1676.902" timestamp="1634746168775" />
-    <state width="1632" height="292" key="GridCell.Tab.1.bottom" timestamp="1634745019695">
-      <screen x="0" y="0" width="1676" height="902" />
-    </state>
-    <state width="1632" height="292" key="GridCell.Tab.1.bottom/0.0.1676.902@0.0.1676.902" timestamp="1634745019695" />
-    <state width="1632" height="292" key="GridCell.Tab.1.center" timestamp="1634745019695">
-      <screen x="0" y="0" width="1676" height="902" />
-    </state>
-    <state width="1632" height="292" key="GridCell.Tab.1.center/0.0.1676.902@0.0.1676.902" timestamp="1634745019695" />
-    <state width="1632" height="292" key="GridCell.Tab.1.left" timestamp="1634745019694">
-      <screen x="0" y="0" width="1676" height="902" />
-    </state>
-    <state width="1632" height="292" key="GridCell.Tab.1.left/0.0.1676.902@0.0.1676.902" timestamp="1634745019694" />
-    <state width="1632" height="292" key="GridCell.Tab.1.right" timestamp="1634745019695">
-      <screen x="0" y="0" width="1676" height="902" />
-    </state>
-    <state width="1632" height="292" key="GridCell.Tab.1.right/0.0.1676.902@0.0.1676.902" timestamp="1634745019695" />
-    <state x="346" y="95" key="SettingsEditor" timestamp="1634712482852">
-      <screen x="0" y="0" width="1676" height="902" />
-    </state>
-    <state x="346" y="95" key="SettingsEditor/0.0.1676.902@0.0.1676.902" timestamp="1634712482852" />
-    <state x="571" y="342" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1634712727403">
-      <screen x="0" y="0" width="1676" height="902" />
-    </state>
-    <state x="571" y="342" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/0.0.1676.902@0.0.1676.902" timestamp="1634712727403" />
-    <state x="1076" y="364" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1634728860567">
-      <screen x="0" y="0" width="1676" height="902" />
-    </state>
-    <state x="1076" y="364" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1676.902@0.0.1676.902" timestamp="1634728860567" />
-    <state x="388" y="186" width="899" height="629" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1634724637877">
-      <screen x="0" y="0" width="1676" height="902" />
-    </state>
-    <state x="388" y="186" width="899" height="629" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/0.0.1676.902@0.0.1676.902" timestamp="1634724637877" />
-    <state x="567" y="225" key="extract.method.dialog" timestamp="1634726432335">
-      <screen x="0" y="0" width="1676" height="902" />
-    </state>
-    <state x="567" y="225" key="extract.method.dialog/0.0.1676.902@0.0.1676.902" timestamp="1634726432335" />
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -221,16 +177,6 @@
           <properties class="java.lang.NullPointerException" package="java.lang" />
           <option name="timeStamp" value="1" />
         </breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/BinarySearchTree.java</url>
-          <line>106</line>
-          <option name="timeStamp" value="9" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/BinarySearchTree.java</url>
-          <line>114</line>
-          <option name="timeStamp" value="10" />
-        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>

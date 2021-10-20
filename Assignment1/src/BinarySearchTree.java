@@ -1,6 +1,6 @@
 public class BinarySearchTree extends BinaryTree{
 
-  private BinaryTreePrint print;
+  private BinaryTreePrint print = new BinaryTreePrint();
   public BinarySearchTree()
   {
     super();
@@ -91,13 +91,135 @@ public class BinarySearchTree extends BinaryTree{
     return node;
   }
 
+  public boolean isSubtreeLesser(BinaryTreeNode node, int value){
+    if(node==null) return true;
+    return isSubtreeLesser(node.getLeftChild(),value)&&
+            isSubtreeLesser(node.getRightChild(),value);
+  };
+  public boolean isSubtreeGreater(BinaryTreeNode node, int value){
+    if(node==null) return true;
+    return isSubtreeGreater(node.getLeftChild(),value)&&
+            isSubtreeGreater(node.getRightChild(),value);
+  };
+  public boolean isBinarySearch(){
+    return isBinarySearch(getRoot());
+  }
+  public boolean isBinarySearch(BinaryTreeNode node){
+    if(node==null) return true;
+    return isSubtreeLesser(node.getLeftChild(),node.getElement())&&
+            isSubtreeGreater(node.getRightChild(),node.getElement())&&
+            isBinarySearch(node.getLeftChild())&&
+            isBinarySearch(node.getRightChild());
+  }
+
 
   public void rebalance(){
+//    while(!isBalanced(1)){
+      for(int i=0;i<height();i++){
+        if(!isBalanced(1))
+          setRoot(rebalance(1,getRoot()));
+//        System.out.println(i);
+      }
+//    }
+  }
+  public BinaryTreeNode rebalance(int maxDiff, BinaryTreeNode node){
+    if(node==null){
+      return null;
+    }
+    if(node.getRightChild()==null&&node.getLeftChild()==null){
+      return node;
+    }
+    else if(node.getLeftChild()==null){
+      int diff = height(node);
+      if(diff>=maxDiff){
+        if(node.getRightChild().getLeftChild()!=null){
+//          System.out.println("Right exist Rotating left special:" +node.getElement()) ;
+          node= rotateLeftSpecial(node);
+        }else{
+//          System.out.println("Right exist Rotating left :" +node.getElement()) ;
+          node = rotateLeft(node);
+        }
+      }
+    }
+    else if(node.getRightChild()==null){
+      int diff = height(node);
+      if(diff>=maxDiff){
+        if(node.getLeftChild().getRightChild()!=null){
+//          System.out.println("Left exist Rotating right special :" +node.getElement()) ;
+          node = rotateRightSpecial(node);
+        }else{
+//          System.out.println("Left exist Rotating right :" +node.getElement()) ;
+          node = rotateRight(node);
+        }
+      }
+    }
+    else{
+      int relativeDiff = height(node.getRightChild())-height(node.getLeftChild());
+      int currentDiff =Math.abs(relativeDiff);
+      if(currentDiff>=maxDiff){
+        if(relativeDiff<0){
+//          System.out.println("Both exist Rotating left  :" +node.getElement()) ;
+          node = rotateRight(node);
+        }else{
+//          System.out.println("Both exist Rotating right :" +node.getElement()) ;
+          node = rotateLeft(node);
+        }
+      }
+      node.addLeftChild(rebalance(maxDiff,node.getLeftChild()));
+      node.addRightChild(rebalance(maxDiff,node.getRightChild()));
+    }
+    return node;
 
   }
+  public BinaryTreeNode rotateRight(BinaryTreeNode node){
+    if (node == null) return null;
+    if(node.getLeftChild()==null) return node;
+    BinaryTreeNode left = node.getLeftChild();
+    BinaryTreeNode temp = left.getRightChild();
+    node.addLeftChild(temp);
+    left.addRightChild(node);
+    return left;
+  }
+  public BinaryTreeNode rotateRightSpecial(BinaryTreeNode node){
+    if (node == null) return null;
+    if(node.getLeftChild()==null) return node;
+    BinaryTreeNode left = node.getLeftChild();
+    BinaryTreeNode temp = left.getRightChild();
+    BinaryTreeNode returned = new BinaryTreeNode(temp.getElement());
+
+    left.addRightChild(temp.getLeftChild());
+    node.addLeftChild(null);
+    returned.addRightChild(node);
+    returned.addLeftChild(left);
+    return returned;
+  }
+  public BinaryTreeNode rotateLeft(BinaryTreeNode node){
+    if (node == null) return null;
+    if(node.getRightChild()==null) return node;
+    BinaryTreeNode right = node.getRightChild();
+    BinaryTreeNode temp = right.getLeftChild();
+    node.addRightChild(temp);
+    right.addLeftChild(node);
+    return right;
+  }
+  public BinaryTreeNode rotateLeftSpecial(BinaryTreeNode node){
+    if (node == null) return null;
+    if(node.getRightChild()==null) return node;
+    BinaryTreeNode right = node.getRightChild();
+    BinaryTreeNode temp = right.getLeftChild();
+    BinaryTreeNode returned = new BinaryTreeNode(temp.getElement());
+
+    right.addLeftChild(temp.getRightChild());
+    node.addRightChild(null);
+    returned.addLeftChild(node);
+    returned.addRightChild(right);
+    return returned;
+  }
+
   public boolean isBalanced(int maxDiff){
     return isBalanced(getRoot(),maxDiff);
   }
+
   public boolean isBalanced(BinaryTreeNode node, int maxDiff){
     if(node==null) return true;
     if(node.getRightChild()==null&&node.getLeftChild()==null) return true;
