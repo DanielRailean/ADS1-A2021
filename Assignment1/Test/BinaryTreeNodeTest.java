@@ -11,19 +11,20 @@ public class BinaryTreeNodeTest {
 
     @BeforeEach
     public void initEach(){
-        node = new BinaryTreeNode(new E(10));
+        node = new BinaryTreeNode<Integer>(new Integer(10));
     }
 
     @Test
     public void CheckNullInitial(){
-        assertTrue(node.getElement().getValue()==10);
+        Integer element = (Integer) node.getElement();
+        assertTrue(element==10);
         assertTrue(node.getRightChild()==null);
         assertTrue(node.getLeftChild()==null);
     }
 
     @Test
     public void CheckLeftChild(){
-        BinaryTreeNode left = new BinaryTreeNode(new E(11));
+        BinaryTreeNode left = new BinaryTreeNode(11);
         node.addLeftChild(left);
         assertFalse(node.getLeftChild()==null);
         assertTrue(node.getRightChild()==null);
@@ -31,7 +32,7 @@ public class BinaryTreeNodeTest {
     }
     @Test
     public void CheckRightChild(){
-        BinaryTreeNode Right = new BinaryTreeNode(new E(16));
+        BinaryTreeNode Right = new BinaryTreeNode(16);
         node.addRightChild(Right);
         assertFalse(node.getRightChild()==null);
         assertTrue(node.getLeftChild()==null);
@@ -43,7 +44,7 @@ public class BinaryTreeNodeTest {
         assertTrue(node.getElement().getValue()==10);
 
         node.setElement(new E(11));
-        
+
         assertTrue(node.getElement().getValue()==11);
         assertFalse(node.getElement().getValue()==10);
     }

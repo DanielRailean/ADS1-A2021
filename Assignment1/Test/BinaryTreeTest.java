@@ -1,22 +1,37 @@
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-
 import static org.junit.jupiter.api.Assertions.*;
 
-class BinaryTreeTest {
 
-    private static BinarySearchTree binSearch;
+public class BinaryTreeTest {
 
-    @BeforeEach
-    public void init(){
+//    BinaryTree tree;
+//
+//    @BeforeEach
+//    public void initEach(){
+//       tree = new BinaryTree();
+//    }
+
+    @Test
+    public void CheckNullInitial(){
+
+    }
+
+    @Test
+    public void CheckLeftChild(){
 
     }
     @Test
-    void checkIfRootExists() {
-        assertTrue(true);
+    public void CheckRightChild(){
+
     }
+    @Test
+    public void CheckElement(){
+
+    }
+
+
 
 }

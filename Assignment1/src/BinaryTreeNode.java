@@ -1,20 +1,20 @@
-public class BinaryTreeNode {
+public class  BinaryTreeNode<T> {
 
-    private E element;
+    private T element;
     private BinaryTreeNode leftChild;
     private BinaryTreeNode rightChild;
 
-    public BinaryTreeNode(E element) {
-        this.element = element;
+    public BinaryTreeNode(T data) {
+        element = data;
         leftChild = null;
         rightChild = null;
     }
 
-    public E getElement() {
+    public T getElement() {
         return element;
     }
 
-    public void setElement(E element) {
+    public void setElement(T element) {
         this.element = element;
     }
 
