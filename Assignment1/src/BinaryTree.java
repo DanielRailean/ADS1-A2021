@@ -15,22 +15,22 @@ public class BinaryTree {
         this.root = root;
     }
     public boolean isEmpty(){
-        return root==null;
+        return getRoot()==null;
     }
 
     public int size(){
-        return size(root) ;
+        return size(getRoot()) ;
     }
 
-    public int size(BinaryTreeNode node){
+    private int size(BinaryTreeNode node){
         if(node==null) return 0;
         else return 1+size(node.getRightChild())+size(node.getLeftChild());
     }
 
     public boolean contains(int element){
-        return contains(root,element);
+        return contains(getRoot(),element);
     }
-    public boolean contains(BinaryTreeNode node, int element){
+    private boolean contains(BinaryTreeNode node, int element){
         if(node==null) return false;
         if(node.getElement()==element) return true;
         else return contains(node.getLeftChild(),element)||contains(node.getRightChild(),element);
@@ -39,9 +39,9 @@ public class BinaryTree {
 
     public ArrayList inOrder(){
         ArrayList list = new ArrayList<Integer>();
-        return inOrder(list,root);
+        return inOrder(list,getRoot());
     }
-    public ArrayList inOrder(ArrayList list,BinaryTreeNode node){
+    private ArrayList inOrder(ArrayList list,BinaryTreeNode node){
         if(node==null){
             return list;
         }
@@ -52,7 +52,7 @@ public class BinaryTree {
     }
     public ArrayList preOrder(){
         ArrayList list = new ArrayList<Integer>();
-        return preOrder(list,root);
+        return preOrder(list,getRoot());
     }
     private ArrayList preOrder(ArrayList list, BinaryTreeNode node){
         if(node==null){
@@ -63,9 +63,9 @@ public class BinaryTree {
         list = preOrder(list,node.getRightChild());
         return list;
     }
-    ArrayList postOrder(){
+    public ArrayList postOrder(){
         ArrayList list = new ArrayList<Integer>();
-        return postOrder(list,root);
+        return postOrder(list,getRoot());
 
     }
     private ArrayList postOrder(ArrayList list, BinaryTreeNode node){
@@ -77,10 +77,10 @@ public class BinaryTree {
         list.add(node.getElement());
         return list;
     }
-    ArrayList levelOrder(){
+    public ArrayList levelOrder(){
         ArrayList list = new ArrayList<Integer>();
         ArrayList discovered = new ArrayList<BinaryTreeNode>();
-        discovered.add(root);
+        discovered.add(getRoot());
         return levelOrder(list,discovered);
     }
     private ArrayList levelOrder(ArrayList list, ArrayList<BinaryTreeNode> discovered){
@@ -102,7 +102,7 @@ public class BinaryTree {
     }
     //height is set to be the highest number of edges from the root to a leaf. // by convention an empty tree has height -1
     public int height(){
-        return height(root);
+        return height(getRoot());
     }
     public int height(BinaryTreeNode node){
         if(node==null) return -1;
