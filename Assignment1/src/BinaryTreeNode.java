@@ -2,16 +2,20 @@ import java.util.Objects;
 
 public class  BinaryTreeNode {
 
+    // element contains a value , may be switched with a Generic that implements the comparable interface.
+    // also contains reference to left and right child.
     private int element;
     private BinaryTreeNode leftChild;
     private BinaryTreeNode rightChild;
 
+    // create a leaf node.
     public BinaryTreeNode(int data) {
         element = data;
         leftChild = null;
         rightChild = null;
     }
 
+    // getters and setters
     public int getElement()
     {
         return element;
