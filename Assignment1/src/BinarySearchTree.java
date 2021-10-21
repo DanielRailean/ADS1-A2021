@@ -115,61 +115,82 @@ public class BinarySearchTree extends BinaryTree{
 
   public void rebalance(){
 //    while(!isBalanced(1)){
-      for(int i=0;i<height();i++){
-        if(!isBalanced(1))
+//      for(int i=0;i<height();i++){
+//        if(!isBalanced(1))
           setRoot(rebalance(1,getRoot()));
 //        System.out.println(i);
-      }
+//      }
 //    }
   }
   public BinaryTreeNode rebalance(int maxDiff, BinaryTreeNode node){
-    if(node==null){
-      return null;
-    }
-    if(node.getRightChild()==null&&node.getLeftChild()==null){
-      return node;
-    }
-    else if(node.getLeftChild()==null){
-      int diff = height(node);
-      if(diff>=maxDiff){
-        if(node.getRightChild().getLeftChild()!=null){
-//          System.out.println("Right exist Rotating left special:" +node.getElement()) ;
-          node= rotateLeftSpecial(node);
-        }else{
-//          System.out.println("Right exist Rotating left :" +node.getElement()) ;
-          node = rotateLeft(node);
-        }
-      }
-    }
-    else if(node.getRightChild()==null){
-      int diff = height(node);
-      if(diff>=maxDiff){
-        if(node.getLeftChild().getRightChild()!=null){
-//          System.out.println("Left exist Rotating right special :" +node.getElement()) ;
-          node = rotateRightSpecial(node);
-        }else{
-//          System.out.println("Left exist Rotating right :" +node.getElement()) ;
-          node = rotateRight(node);
-        }
-      }
-    }
+    if (node==null) return node;
+    if(node.getLeftChild()==null&&node.getRightChild()==null) return node;
     else{
-      int relativeDiff = height(node.getRightChild())-height(node.getLeftChild());
+      int leftH = height(node.getLeftChild());
+      int rightH = height(node.getRightChild());
+      int relativeDiff = leftH-rightH;
       int currentDiff =Math.abs(relativeDiff);
-      if(currentDiff>=maxDiff){
-        if(relativeDiff<0){
-//          System.out.println("Both exist Rotating left  :" +node.getElement()) ;
-          node = rotateRight(node);
+      if(currentDiff>maxDiff){
+        if(node.getRightChild()==null){
+          node= rotateLeft(rotateRight(node));
+        }else if(node.getLeftChild()==null){
+          node = rotateRight(rotateLeft(node));
         }else{
-//          System.out.println("Both exist Rotating right :" +node.getElement()) ;
-          node = rotateLeft(node);
+          // tree is left heavy
+          if(relativeDiff>0){
+            node = rotateRight(node);
+          }
+          //tree is right heavy
+          else{
+            node = rotateLeft(node);
+          }
         }
+
       }
       node.addLeftChild(rebalance(maxDiff,node.getLeftChild()));
       node.addRightChild(rebalance(maxDiff,node.getRightChild()));
+      return node;
     }
-    return node;
+}
 
+//  public boolean isBalanced(BinaryTreeNode node, int maxDiff){
+//    if(node==null) return true;
+//    if(node.getRightChild()==null&&node.getLeftChild()==null) return true;
+//    else{
+//      int relativeDiff = height(node.getRightChild())-height(node.getLeftChild());
+////      System.out.println("Relative diff at "+node.getElement() +" is " + relativeDiff);
+//      int currentDiff =Math.abs(relativeDiff);
+////      System.out.println("Absolute diff is :" +currentDiff );
+//      boolean returned = (currentDiff<=maxDiff)&&isBalanced(node.getLeftChild(),maxDiff)&& isBalanced(node.getRightChild(),maxDiff);
+////      if(!returned)
+////        System.out.println(node.getElement()+" is unbalanced");
+////      else
+////        System.out.println(node.getElement()+" is balanced");
+//
+//      return returned;
+//    }
+//  }
+//
+  public int isBalanced(BinaryTreeNode node, int maxDiff){
+    if(node==null) return -1;
+    if(node.getLeftChild()==null&&node.getRightChild()==null) return -1;
+    else{
+      int leftH = height(node.getLeftChild());
+      int rightH = height(node.getRightChild());
+      int relativeDiffL = leftH-rightH;
+      int relativeDiffR = rightH-leftH;
+      int relativeDiff = Math.min(relativeDiffL,relativeDiffR);
+      int currentDiff =Math.abs(relativeDiff);
+      //System.out.println("Relative diff at "+node.getElement() +" is " + relativeDiff);
+//      System.out.println("Absolute diff is :" +currentDiff );
+      if(currentDiff>maxDiff){
+        // tree is left heavy
+        return relativeDiff;
+      }
+      int leftB = isBalanced(node.getLeftChild(),maxDiff);
+      int rightB = isBalanced(node.getRightChild(),maxDiff);
+      return Math.min(leftB,rightB);
+    }
   }
   public BinaryTreeNode rotateRight(BinaryTreeNode node){
     if (node == null) return null;
@@ -180,19 +201,7 @@ public class BinarySearchTree extends BinaryTree{
     left.addRightChild(node);
     return left;
   }
-  public BinaryTreeNode rotateRightSpecial(BinaryTreeNode node){
-    if (node == null) return null;
-    if(node.getLeftChild()==null) return node;
-    BinaryTreeNode left = node.getLeftChild();
-    BinaryTreeNode temp = left.getRightChild();
-    BinaryTreeNode returned = new BinaryTreeNode(temp.getElement());
 
-    left.addRightChild(temp.getLeftChild());
-    node.addLeftChild(null);
-    returned.addRightChild(node);
-    returned.addLeftChild(left);
-    return returned;
-  }
   public BinaryTreeNode rotateLeft(BinaryTreeNode node){
     if (node == null) return null;
     if(node.getRightChild()==null) return node;
@@ -202,61 +211,13 @@ public class BinarySearchTree extends BinaryTree{
     right.addLeftChild(node);
     return right;
   }
-  public BinaryTreeNode rotateLeftSpecial(BinaryTreeNode node){
-    if (node == null) return null;
-    if(node.getRightChild()==null) return node;
-    BinaryTreeNode right = node.getRightChild();
-    BinaryTreeNode temp = right.getLeftChild();
-    BinaryTreeNode returned = new BinaryTreeNode(temp.getElement());
 
-    right.addLeftChild(temp.getRightChild());
-    node.addRightChild(null);
-    returned.addLeftChild(node);
-    returned.addRightChild(right);
-    return returned;
-  }
 
   public boolean isBalanced(int maxDiff){
-    return isBalanced(getRoot(),maxDiff);
+    int balance = isBalanced(getRoot(),maxDiff);
+    return Math.abs(balance)<=maxDiff;
+//    return isBalanced(getRoot(),maxDiff);
   }
 
-  public boolean isBalanced(BinaryTreeNode node, int maxDiff){
-    if(node==null) return true;
-    if(node.getRightChild()==null&&node.getLeftChild()==null) return true;
-    else{
-      int relativeDiff = height(node.getRightChild())-height(node.getLeftChild());
-//      System.out.println("Relative diff at "+node.getElement() +" is " + relativeDiff);
-      int currentDiff =Math.abs(relativeDiff);
-//      System.out.println("Absolute diff is :" +currentDiff );
-      boolean returned = (currentDiff<=maxDiff)&&isBalanced(node.getLeftChild(),maxDiff)&& isBalanced(node.getRightChild(),maxDiff);
-//      if(!returned)
-//        System.out.println(node.getElement()+" is unbalanced");
-//      else
-//        System.out.println(node.getElement()+" is balanced");
 
-      return returned;
-    }
-  }
-
-  public BinaryTreeNode getUnbalancedNode(int maxDiff){
-    return getUnbalancedNode(getRoot(),maxDiff);
-  }
-  public BinaryTreeNode getUnbalancedNode(BinaryTreeNode node, int maxDiff){
-    if(node==null) return null;
-    if(node.getRightChild()==null&&node.getLeftChild()==null) return null;
-    else{
-      int relativeDiff = height(node.getRightChild())-height(node.getLeftChild());
-      int currentDiff =Math.abs(relativeDiff);
-      if(!isBalanced(node.getLeftChild(),maxDiff)){
-        return node.getLeftChild();
-      }
-      if(!isBalanced(node.getRightChild(),maxDiff)){
-        return node.getLeftChild();
-      }
-      if(!(currentDiff<=maxDiff)){
-        return node;
-      }
-      return null;
-    }
-  }
 }

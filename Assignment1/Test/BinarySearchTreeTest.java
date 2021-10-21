@@ -170,17 +170,22 @@ public class BinarySearchTreeTest {
     tree.insert(8);
     tree.insert(11);
     tree.insert(18);
+//    tree.insert(16);
+
+//    System.out.println("balanced 1: "+tree.isBalanced(1));
+//
+//    System.out.println("height of "+tree.getRoot().getRightChild().getElement()+" is "+tree.height(tree.getRoot().getRightChild()));
+//    System.out.println("height of "+tree.getRoot().getLeftChild().getElement()+" is "+tree.height(tree.getRoot().getLeftChild()));
+//    tree.insert(18);
 
 
-    print.printTree(tree.getRoot());
-    System.out.println();
-    System.out.println("------------------------------------------------------");
-    assertTrue(tree.isBalanced(2));
-    assertFalse(tree.isBalanced(0));
-    assertFalse(tree.isBalanced(1));
-    assertTrue(tree.getUnbalancedNode(2)==null);
-    assertTrue(tree.getUnbalancedNode(1).getElement()==5);
-    assertTrue(tree.getUnbalancedNode(0).getElement()==5);
+    printTree();
+    tree.rebalance();
+    printTree();
+    System.out.println("balanced 1: "+tree.isBalanced(1));
+//    assertTrue(tree.isBalanced(2));
+//    assertFalse(tree.isBalanced(0));
+//    assertFalse(tree.isBalanced(1));
   }
   @Test
   public void checkRotateRight(){
@@ -292,7 +297,6 @@ public class BinarySearchTreeTest {
     }
     printTree();
     ArrayList<Integer> inorder = tree.inOrder();
-    assertTrue((tree.getUnbalancedNode(1)==null));
     assertTrue(inorder.get(0)==1);
     assertTrue(inorder.get(inorder.size()-1)==maxtest-1);
   }
@@ -300,14 +304,15 @@ public class BinarySearchTreeTest {
   public void printTree(){
     System.out.println();
     System.out.println("------------------------------------------------------");
-//    print.printTree(tree.getRoot());
+    print.printTree(tree.getRoot());
     System.out.println();
     System.out.println("size: "+tree.size());
     System.out.println("is binary search: "+tree.isBinarySearch());
+    System.out.println("balanced 3: "+tree.isBalanced(3));
     System.out.println("balanced 2: "+tree.isBalanced(2));
     System.out.println("balanced 1: "+tree.isBalanced(1));
     System.out.println("balanced 0: "+tree.isBalanced(0));
-//    System.out.println(tree.inOrder());
+    System.out.println(tree.inOrder());
     System.out.println("------------------------------------------------------");
     System.out.println();
   }
