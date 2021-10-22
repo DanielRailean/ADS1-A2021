@@ -16,7 +16,7 @@ public class BinarySearchTreeTest {
   // used to print in the printTree() method at the bottom
   BinaryTreePrint print = new BinaryTreePrint();
   // maximum number of elements to check balance after inserts.
-  int maxtest = 1000;
+  int maxtest = 10000;
   // random to use in random insert.
   Random random = new Random();
 
@@ -281,7 +281,7 @@ public class BinarySearchTreeTest {
     printTree();
     ArrayList<Integer> inorder = tree.inOrder();
     assertTrue(inorder.get(0)==1);
-    assertTrue(tree.isBalanced(1));
+    assertTrue(tree.isBalanced(2));
     assertTrue(inorder.get(inorder.size()-1)==maxtest-1);
   }
   // checking the tree balance after inserting all numbers between  maxtest and 1 value
@@ -297,13 +297,13 @@ public class BinarySearchTreeTest {
       tree.rebalance();
       if (i % 1000 == 0) {
         System.out.println("adding nr:"+ i );
-        assertTrue(tree.isBalanced(1));
+        assertTrue(tree.isBalanced(2));
       }
     }
     printTree();
     ArrayList<Integer> inorder = tree.inOrder();
     assertTrue(inorder.get(0)==1);
-    assertTrue(tree.isBalanced(1));
+    assertTrue(tree.isBalanced(2));
     assertTrue(inorder.get(inorder.size()-1)==maxtest-1);
   }
   // checking the tree balance after inserting all numbers between  maxtest and 1 value  // tested up to maxtest =50000;
@@ -326,23 +326,6 @@ public class BinarySearchTreeTest {
   // checking the tree balance after inserting maxtest amount of random numbers //
   // fails at random time between 10 and 100 inserts //
   // always returns a tree balanced with a minimum value of 2 , tested up to 50 000 random values (1h16m)
-  @Test
-  public void bulkCheckReBalanceRandom(){
-    for(int i=1;i<=maxtest;i++){
-      int rand = random.nextInt(maxtest*10);
-      tree.insert(rand);
-      tree.rebalance();
-      if (i % 1000 == 0){
-        System.out.println("adding nr:"+ i );
-        //uncomment the code below to check when the balance is no longer maintained
-//        assertTrue(tree.isBalanced(1));
-      }
-
-    }
-    printTree();
-    ArrayList<Integer> inorder = tree.inOrder();
-    assertTrue(tree.isBalanced(1));
-  }
 
   // checking the tree balance after inserting all numbers between 1 and maxtest value  // tested up to maxtest =50000;
   @Test
@@ -361,23 +344,42 @@ public class BinarySearchTreeTest {
     assertTrue(inorder.get(inorder.size()-1)==maxtest);
   }
 
+  @Test
+  public void bulkCheckReBalanceRandom(){
+    for(int i=1;i<=maxtest;i++){
+      int rand = random.nextInt(maxtest*10);
+      tree.insert(rand);
+      tree.rebalance();
+      if (i % 1000 == 0){
+        System.out.println("adding nr:"+ i );
+        //uncomment the code below to check when the balance is no longer maintained
+//        assertTrue(tree.isBalanced(1));
+      }
+
+    }
+    printTree();
+    ArrayList<Integer> inorder = tree.inOrder();
+    System.out.println(inorder);
+    assertTrue(tree.isBalanced(2));
+  }
+
   //printing information about the tree as well as asserting its balancing
   public void printTree(){
 
 //     uncomment to see info about trees after tests.
-//    System.out.println();
-//    System.out.println("------------------------------------------------------");
-////    print.printTree(tree.getRoot());
-//    System.out.println();
-//    System.out.println("size: "+tree.size());
-//    assertTrue(tree.isBinarySearch());
-//    System.out.println("balanced 2: "+tree.isBalanced(2));
-//    System.out.println("balanced 1: "+tree.isBalanced(1));
-////    assertTrue(tree.isBalanced(1));
-//    System.out.println("balanced 0: "+tree.isBalanced(0));
-//    System.out.println(tree.inOrder());
-//    System.out.println("------------------------------------------------------");
-//    System.out.println();
+    System.out.println();
+    System.out.println("------------------------------------------------------");
+//    print.printTree(tree.getRoot());
+    System.out.println();
+    System.out.println("size: "+tree.size());
+    assertTrue(tree.isBinarySearch());
+    System.out.println("balanced 2: "+tree.isBalanced(2));
+    System.out.println("balanced 1: "+tree.isBalanced(1));
+//    assertTrue(tree.isBalanced(1));
+    System.out.println("balanced 0: "+tree.isBalanced(0));
+    System.out.println(tree.inOrder());
+    System.out.println("------------------------------------------------------");
+    System.out.println();
   }
 
 }

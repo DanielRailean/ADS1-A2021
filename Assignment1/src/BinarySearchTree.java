@@ -140,28 +140,30 @@ public class BinarySearchTree extends BinaryTree{
     if (node==null) return node;
     // is a leaf
     if(node.getLeftChild()==null&&node.getRightChild()==null) return node;
-    // not a leaf
+      // not a leaf
     else{
+      node.addLeftChild(rebalance(maxDiff,node.getLeftChild()));
+      node.addRightChild(rebalance(maxDiff,node.getRightChild()));
       //calculate height relative and total diff.
       // call self for children;
       int leftH = height(node.getLeftChild());
       int rightH = height(node.getRightChild());
       int relativeDiff = leftH-rightH;
       int currentDiff =Math.abs(relativeDiff);
-      node.addLeftChild(rebalance(maxDiff,node.getLeftChild()));
-      node.addRightChild(rebalance(maxDiff,node.getRightChild()));
+
       // broke the limit
       if(currentDiff>maxDiff){
         // one of the children is null =>
         // if right is null rotate left the child then rotate right self
-        if(node.getRightChild()==null){
+        if(node.getRightChild()==null||(leftH==2&&rightH==0)){
           node.addLeftChild(rotateLeft(node.getLeftChild()));
           node = rotateRight(node);
         }
         // if left is null rotate left the child then rotate left self
-        else if(node.getLeftChild()==null){
+        else if(node.getLeftChild()==null||(rightH==2&&leftH==0)){
           node.addRightChild(rotateRight(node.getRightChild()));
           node = rotateLeft(node);
+
         }else{
           // tree is left heavy, rotate right
           if(relativeDiff>0){
@@ -178,6 +180,11 @@ public class BinarySearchTree extends BinaryTree{
     }
 }
 
+  public boolean isBalanced(int maxDiff){
+//    int balance = isBalanced(getRoot(),maxDiff);
+//    return Math.abs(balance)<=maxDiff;
+    return isBalanced(getRoot(),maxDiff);
+  }
 // an implementation of is balanced that returns boolean and not the balance value.
   public boolean isBalanced(BinaryTreeNode node, int maxDiff){
     if(node==null) return true;
@@ -217,11 +224,6 @@ public class BinarySearchTree extends BinaryTree{
   }
 
 
-  public boolean isBalanced(int maxDiff){
-//    int balance = isBalanced(getRoot(),maxDiff);
-//    return Math.abs(balance)<=maxDiff;
-    return isBalanced(getRoot(),maxDiff);
-  }
 
 
 }
