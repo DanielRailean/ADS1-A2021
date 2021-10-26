@@ -16,7 +16,7 @@ public class BinaryTreePrint   {
 	 * The tree must be created elsewhere (possible in a Main or Test class).
 	 */
 
-	public void printTree(BinaryTreeNode<E>root) {
+	public void printTree(BinaryTreeNode root) {
 		ArrayList<BinaryTreeNode> parent = new ArrayList<BinaryTreeNode>();
 		parent.add(root);
 		printT(parent, 64);

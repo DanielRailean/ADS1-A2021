@@ -12,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.*;
 public class BinarySearchTreeTest {
 
   // tree to be checked
-  BinarySearchTree tree;
+  BinarySearchTree<Integer> tree;
   // used to print in the printTree() method at the bottom
   BinaryTreePrint print = new BinaryTreePrint();
   // maximum number of elements to check balance after inserts.
@@ -24,7 +24,7 @@ public class BinarySearchTreeTest {
   // create a new tree after each test.
   @BeforeEach
   public void initEach(){
-    tree = new BinarySearchTree();
+    tree = new BinarySearchTree<Integer>();
   }
 
   // check if tree contains only inserted elements.

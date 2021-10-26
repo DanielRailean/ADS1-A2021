@@ -14,7 +14,7 @@ public class BinaryTreeTest {
 
     @BeforeEach
     public void initEach(){
-       tree = new BinaryTree();
+       tree = new BinaryTree<Integer>();
     }
 
     @Test
