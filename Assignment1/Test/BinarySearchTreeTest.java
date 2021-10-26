@@ -44,6 +44,7 @@ public class BinarySearchTreeTest {
     tree.insert(8);
     tree.insert(11);
     tree.insert(18);
+    tree.rebalance();
     printTree();
     assertTrue(tree.contains(1));
     assertTrue(tree.contains(15));
@@ -67,6 +68,7 @@ public class BinarySearchTreeTest {
     tree.insert(8);
     tree.insert(11);
     tree.insert(18);
+    tree.rebalance();
     printTree();
     assertTrue(tree.findMax()==20);
   }
@@ -88,6 +90,9 @@ public class BinarySearchTreeTest {
     tree.insert(8);
     tree.insert(11);
     tree.insert(18);
+
+    tree.rebalance();
+
     printTree();
 
     assertTrue(tree.findMin()==1);
@@ -111,6 +116,7 @@ public class BinarySearchTreeTest {
     tree.insert(8);
     tree.insert(11);
     tree.insert(18);
+    tree.rebalance();
 
     // check content
     assertTrue(tree.contains(15));
@@ -121,12 +127,14 @@ public class BinarySearchTreeTest {
     tree.removeElement(15);
     printTree();
 
+    tree.rebalance();
+
     // remove one check rest
     assertFalse(tree.contains(15));
     assertTrue(tree.contains(5));
     assertTrue(tree.contains(1));
     assertTrue(tree.contains(20));
-
+    tree.rebalance();
     printTree();
     tree.removeElement(5);
     printTree();
@@ -202,8 +210,11 @@ public class BinarySearchTreeTest {
     tree.insert(6);
     tree.insert(7);
 
+    tree.rebalance();
+
     printTree();
     tree.setRoot(tree.rotateRight(tree.getRoot()));
+    tree.rebalance();
     printTree();
   }
 
@@ -217,8 +228,11 @@ public class BinarySearchTreeTest {
     tree.insert(6);
     tree.insert(7);
 
+    tree.rebalance();
+
     printTree();
     tree.setRoot(tree.rotateLeft(tree.getRoot()));
+    tree.rebalance();
     printTree();
   }
 
@@ -229,13 +243,13 @@ public class BinarySearchTreeTest {
     tree.insert(3);
     tree.insert(2);
     tree.insert(1);
-    tree.insert(0);
+    tree.insert(-1);
     tree.insert(6);
     tree.insert(7);
     tree.insert(8);
     tree.insert(9);
 
-    tree.setRoot(tree.rebalance(1,tree.getRoot()));
+    tree.rebalance();
 
     printTree();
     assertTrue(tree.isBalanced(1));
@@ -257,12 +271,11 @@ public class BinarySearchTreeTest {
     tree.insert(8);
     tree.insert(11);
     tree.insert(18);
+    tree.insert(21);
 
     tree.rebalance();
     printTree();
     assertTrue(tree.isBalanced(1));
-
-
   }
   // checking the tree balance after inserting all numbers between  maxtest and 1 value
   // inserts small then big
@@ -275,7 +288,7 @@ public class BinarySearchTreeTest {
       tree.insert(maxtest-i);
       tree.rebalance();
       if (i % 1000 == 0) {
-        System.out.println("adding nr:"+ i );
+//        System.out.println("adding nr:"+ i );
       }
     }
     printTree();
@@ -296,7 +309,7 @@ public class BinarySearchTreeTest {
       tree.insert(i);
       tree.rebalance();
       if (i % 1000 == 0) {
-        System.out.println("adding nr:"+ i );
+//        System.out.println("adding nr:"+ i );
         assertTrue(tree.isBalanced(2));
       }
     }
@@ -314,7 +327,7 @@ public class BinarySearchTreeTest {
       tree.insert(maxtest-i);
       tree.rebalance();
       if (i % 1000 == 0) {
-        System.out.println("adding nr:"+ i );
+//        System.out.println("adding nr:"+ i );
       }
     }
     printTree();
@@ -334,7 +347,7 @@ public class BinarySearchTreeTest {
       tree.insert(i);
       tree.rebalance();
       if (i % 1000 == 0) {
-        System.out.println("adding nr:"+ i );
+//        System.out.println("adding nr:"+ i );
       }
     }
     printTree();
@@ -346,20 +359,16 @@ public class BinarySearchTreeTest {
 
   @Test
   public void bulkCheckReBalanceRandom(){
-    for(int i=1;i<=maxtest;i++){
+    for(int i=1;i<=maxtest+1;i++){
       int rand = random.nextInt(maxtest*10);
       tree.insert(rand);
-      tree.rebalance();
       if (i % 1000 == 0){
-        System.out.println("adding nr:"+ i );
-        //uncomment the code below to check when the balance is no longer maintained
-//        assertTrue(tree.isBalanced(1));
+//        System.out.println("adding nr:"+ i );
       }
 
     }
+    tree.rebalance();
     printTree();
-    ArrayList<Integer> inorder = tree.inOrder();
-    System.out.println(inorder);
     assertTrue(tree.isBalanced(2));
   }
 
@@ -367,19 +376,17 @@ public class BinarySearchTreeTest {
   public void printTree(){
 
 //     uncomment to see info about trees after tests.
-    System.out.println();
-    System.out.println("------------------------------------------------------");
-//    print.printTree(tree.getRoot());
-    System.out.println();
-    System.out.println("size: "+tree.size());
+//    System.out.println();
+//    System.out.println("------------------------------------------------------");
+//    System.out.println();
+//    System.out.println("size: "+tree.size());
     assertTrue(tree.isBinarySearch());
-    System.out.println("balanced 2: "+tree.isBalanced(2));
-    System.out.println("balanced 1: "+tree.isBalanced(1));
-//    assertTrue(tree.isBalanced(1));
-    System.out.println("balanced 0: "+tree.isBalanced(0));
-    System.out.println(tree.inOrder());
-    System.out.println("------------------------------------------------------");
-    System.out.println();
+//    System.out.println("balanced 2: "+tree.isBalanced(2));
+//    System.out.println("balanced 1: "+tree.isBalanced(1));
+    assertTrue(tree.isBalanced(1));
+//    System.out.println("balanced 0: "+tree.isBalanced(0));
+//    System.out.println("------------------------------------------------------");
+//    System.out.println();
   }
 
 }

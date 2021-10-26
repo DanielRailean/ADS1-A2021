@@ -1,38 +1,40 @@
-public class BinarySearchTree extends BinaryTree{
+import java.util.ArrayList;
+import java.util.List;
 
-  private BinaryTreePrint print = new BinaryTreePrint();
+public class BinarySearchTree<E extends Comparable<E>> extends BinaryTree<E>{
+
   public BinarySearchTree()
   {
     super();
   }
 
   // calling the recursive brother passing the root
-  public void insert(int element){
+  public void insert(E element){
     setRoot(insert(element,getRoot()));;
   };
-  private BinaryTreeNode insert(int element, BinaryTreeNode node){
+  private BinaryTreeNode<E> insert(E element, BinaryTreeNode<E> node){
     if(node==null){
-      return new BinaryTreeNode(element);
+      return new BinaryTreeNode<E>(element);
     }
-    if(node.getElement()>element){
+    if(node.getElement().compareTo(element)==1){
        node.addLeftChild(insert(element,node.getLeftChild()));
-    }else if(node.getElement()<element){
+    }else if(node.getElement().compareTo(element)==-1){
       node.addRightChild(insert(element,node.getRightChild()));
     }
     return node;
   }
 
   // calling the recursive brother passing the root
-  public void removeElement(int element){
+  public void removeElement(E element){
       setRoot(delete(element,getRoot()));
   };
-  private BinaryTreeNode delete(int element, BinaryTreeNode node){
+  private BinaryTreeNode<E> delete(E element, BinaryTreeNode<E> node){
       if(node==null){
         return null;
       }
-      if(node.getElement()>element){
+      if(node.getElement().compareTo(element)==1){
         node.addLeftChild(delete(element,node.getLeftChild()));
-      }else if(node.getElement()<element){
+      }else if(node.getElement().compareTo(element)==-1){
         node.addRightChild(delete(element,node.getRightChild()));
       }
       else{
@@ -46,7 +48,7 @@ public class BinarySearchTree extends BinaryTree{
           return node.getLeftChild();
         }
         else{
-          int min = findMinElement(node.getRightChild()).getElement();
+          E min = (E) findMinElement(node.getRightChild()).getElement();
           node.setElement(min);
           node.addRightChild(delete(min,node.getRightChild()));
         }
@@ -54,49 +56,45 @@ public class BinarySearchTree extends BinaryTree{
     return node;
   }
   // calling the recursive brother passing the root and returning its node value.
-  public int findMax(){
+  public E findMax(){
     if(findMaxElement(getRoot())!=null)
-    return findMaxElement(getRoot()).getElement();
-    else return Integer.MIN_VALUE;
+    return findMaxElement(getRoot()).getElement());
   }
-  // calling the recursive brother passing the root and min possible value for integer
-  public BinaryTreeNode findMaxElement(BinaryTreeNode root){
-    int max = Integer.MIN_VALUE;
-    return findMax(root,max);
+  // calling the recursive brother passing the root and min possible value for Eeger
+  public BinaryTreeNode<E> findMaxElement(BinaryTreeNode<E> root){
+    return findMax(root,root.getElement());
   };
-  private BinaryTreeNode findMax(BinaryTreeNode node,int currentMax){
+  private BinaryTreeNode<E> findMax(BinaryTreeNode<E> node,E currentMax){
     // if called for a leaf child
     if(node==null){
         return null;
     }
     // else if searched is smaller than the current and there is a right node, try to find bigger number in the right than the current node value
     // other implementation might be going to the right until the right is null , then returning the value.
-    if(node.getElement()>currentMax&&node.getRightChild()!=null){
-      node = findMax(node.getRightChild(),node.getElement());
+    if(node.getElement().compareTo(currentMax)==1&&node.getRightChild()!=null){
+      node = findMax(node.getRightChild(), (E) node.getElement());
     }
     // if we are here than we are at the biggest node in the tree.
     return node;
   }
 
   // calling the recursive brother passing the root and returning its node value.
-  public int findMin(){
+  public E findMin(){
     if(findMinElement(getRoot())!=null)
-      return findMinElement(getRoot()).getElement();
-    else return Integer.MAX_VALUE;
+      return findMinElement(getRoot()).getElement());
   };
 
-  // calling the recursive brother passing the root and min possible value for integer
-  public BinaryTreeNode findMinElement(BinaryTreeNode root){
-    int max = Integer.MAX_VALUE;
-    return findMin(root,max);
+  // calling the recursive brother passing the root and min possible value for Eeger
+  public BinaryTreeNode<E> findMinElement(BinaryTreeNode<E> root){
+    return findMin(root,root.getElement());
   }
-  public BinaryTreeNode findMin(BinaryTreeNode node, int currentMin){
+  public BinaryTreeNode<E> findMin(BinaryTreeNode<E> node, E currentMin){
     // if called for a leaf child
     if(node==null){
       return null;
     }
     // else if searched is bigger than the current and there is a left node, try to find a smaller than this number in the left.
-    if(node.getElement()<currentMin&&node.getLeftChild()!=null){
+    if(node.getElement().compareTo(currentMin)==-1&&node.getLeftChild()!=null){
       node = findMin(node.getLeftChild(),node.getElement());
     }
     // if we are here than we are at the smallest node in the tree.
@@ -104,13 +102,13 @@ public class BinarySearchTree extends BinaryTree{
   }
 
   // method used to check if all the values in a tree are smaller than a given value.
-  public boolean isSubtreeLesser(BinaryTreeNode node, int value){
+  public boolean isSubtreeLesser(BinaryTreeNode<E> node, E value){
     if(node==null) return true;
     return  node.getElement()<value&&
             isSubtreeLesser(node.getLeftChild(),value)&&
             isSubtreeLesser(node.getRightChild(),value);
   };
-  public boolean isSubtreeGreater(BinaryTreeNode node, int value){
+  public boolean isSubtreeGreater(BinaryTreeNode<E> node, E value){
     if(node==null) return true;
     return  node.getElement()>value&&
             isSubtreeGreater(node.getLeftChild(),value)&&
@@ -119,80 +117,59 @@ public class BinarySearchTree extends BinaryTree{
   public boolean isBinarySearch(){
     return isBinarySearch(getRoot());
   }
-  public boolean isBinarySearch(BinaryTreeNode node){
+  public boolean isBinarySearch(BinaryTreeNode<E> node){
     if(node==null) return true;
-    return isSubtreeLesser(node.getLeftChild(),node.getElement())&&
-            isSubtreeGreater(node.getRightChild(),node.getElement())&&
+    return isSubtreeLesser(node.getLeftChild(), (E) node.getElement())&&
+            isSubtreeGreater(node.getRightChild(), (E) node.getElement())&&
             isBinarySearch(node.getLeftChild())&&
             isBinarySearch(node.getRightChild());
   }
 
 // if not ballanced call the recursive brother.
   public void rebalance(){
-
-        if(!isBalanced(1))
-          setRoot(rebalance(1,getRoot()));
-
+    ArrayList<Integer> inOrder = inOrder();
+    setRoot(calcRoot(inOrder()));
+    getRoot();
   }
   // accepts a root and a max difference between heights
-  public BinaryTreeNode rebalance(int maxDiff, BinaryTreeNode node){
-    // nothing to balance
-    if (node==null) return node;
-    // is a leaf
-    if(node.getLeftChild()==null&&node.getRightChild()==null) return node;
-      // not a leaf
-    else{
-      node.addLeftChild(rebalance(maxDiff,node.getLeftChild()));
-      node.addRightChild(rebalance(maxDiff,node.getRightChild()));
-      //calculate height relative and total diff.
-      // call self for children;
-      int leftH = height(node.getLeftChild());
-      int rightH = height(node.getRightChild());
-      int relativeDiff = leftH-rightH;
-      int currentDiff =Math.abs(relativeDiff);
-
-      // broke the limit
-      if(currentDiff>maxDiff){
-        // one of the children is null =>
-        // if right is null rotate left the child then rotate right self
-        if(node.getRightChild()==null||(leftH==2&&rightH==0)){
-          node.addLeftChild(rotateLeft(node.getLeftChild()));
-          node = rotateRight(node);
-        }
-        // if left is null rotate left the child then rotate left self
-        else if(node.getLeftChild()==null||(rightH==2&&leftH==0)){
-          node.addRightChild(rotateRight(node.getRightChild()));
-          node = rotateLeft(node);
-
-        }else{
-          // tree is left heavy, rotate right
-          if(relativeDiff>0){
-            node = rotateRight(node);
-          }
-          //tree is right heavy, rotate left
-          else{
-            node = rotateLeft(node);
-          }
-        }
-      }
-      // return already balanced node.
-      return node;
+  private BinaryTreeNode<E> calcRoot(List<Integer> list){
+    if(list.size()==0){
+      return null;
     }
-}
+    if(list.size()==1){
+      return new BinaryTreeNode<E>(list.get(0));
+    }
+    if(list.size()==4){
+      BinaryTreeNode<E> returned = new BinaryTreeNode<E>(list.get(2));
+      BinaryTreeNode<E> left = new BinaryTreeNode<E>(list.get(1));
+      left.addLeftChild(new BinaryTreeNode<E>(list.get(0)));
+      returned.addLeftChild(left);
+      returned.addRightChild(new BinaryTreeNode<E>(list.get(3)));
+      return returned;
+    }
+    E current = (list.size())/2;
+    BinaryTreeNode<E> head = new BinaryTreeNode<E>(list.get(current));
+    List<Integer> left = list.subList(0,current);
+    List<Integer> right = list.subList(current+1,list.size());
+    head.addLeftChild(calcRoot(left));
+    head.addRightChild(calcRoot(right));
+    return head;
+  }
 
-  public boolean isBalanced(int maxDiff){
-//    int balance = isBalanced(getRoot(),maxDiff);
+
+  public boolean isBalanced(E maxDiff){
+//    E balance = isBalanced(getRoot(),maxDiff);
 //    return Math.abs(balance)<=maxDiff;
     return isBalanced(getRoot(),maxDiff);
   }
 // an implementation of is balanced that returns boolean and not the balance value.
-  public boolean isBalanced(BinaryTreeNode node, int maxDiff){
+  public boolean isBalanced(BinaryTreeNode<E> node, E maxDiff){
     if(node==null) return true;
     if(node.getRightChild()==null&&node.getLeftChild()==null) return true;
     else{
-      int relativeDiff = height(node.getRightChild())-height(node.getLeftChild());
+      E relativeDiff = height(node.getRightChild())-height(node.getLeftChild());
 
-      int currentDiff =Math.abs(relativeDiff);
+      E currentDiff =Math.abs(relativeDiff);
 
       boolean returned = (currentDiff<=maxDiff)&&isBalanced(node.getLeftChild(),maxDiff)&& isBalanced(node.getRightChild(),maxDiff);
 
@@ -202,22 +179,22 @@ public class BinarySearchTree extends BinaryTree{
   }
 
   // right rotation.
-  public BinaryTreeNode rotateRight(BinaryTreeNode node){
+  public BinaryTreeNode<E> rotateRight(BinaryTreeNode<E> node){
     if (node == null) return null;
     if(node.getLeftChild()==null) return node;
-    BinaryTreeNode left = node.getLeftChild();
-    BinaryTreeNode temp = left.getRightChild();
+    BinaryTreeNode<E> left = node.getLeftChild();
+    BinaryTreeNode<E> temp = left.getRightChild();
     node.addLeftChild(temp);
     left.addRightChild(node);
     return left;
   }
 
   // left rotation
-  public BinaryTreeNode rotateLeft(BinaryTreeNode node){
+  public BinaryTreeNode<E> rotateLeft(BinaryTreeNode<E> node){
     if (node == null) return null;
     if(node.getRightChild()==null) return node;
-    BinaryTreeNode right = node.getRightChild();
-    BinaryTreeNode temp = right.getLeftChild();
+    BinaryTreeNode<E> right = node.getRightChild();
+    BinaryTreeNode<E> temp = right.getLeftChild();
     node.addRightChild(temp);
     right.addLeftChild(node);
     return right;

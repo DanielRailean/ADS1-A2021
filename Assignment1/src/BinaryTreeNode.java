@@ -1,56 +1,45 @@
 import java.util.Objects;
 
-public class  BinaryTreeNode {
+public class  BinaryTreeNode<E extends Comparable<E>>{
 
     // element contains a value , may be switched with a Generic that implements the comparable interface.
     // also contains reference to left and right child.
-    private int element;
-    private BinaryTreeNode leftChild;
-    private BinaryTreeNode rightChild;
+    private E element;
+    private BinaryTreeNode<E> leftChild;
+    private BinaryTreeNode<E> rightChild;
 
     // create a leaf node.
-    public BinaryTreeNode(int data) {
-        element = data;
+    public BinaryTreeNode(E element) {
+        this.element = element;
         leftChild = null;
         rightChild = null;
     }
 
     // getters and setters
-    public int getElement()
+    public E getElement()
     {
         return element;
     }
 
-    public void setElement(int element)
+    public void setElement(E element)
     {
         this.element = element;
     }
 
-    public BinaryTreeNode getLeftChild() {
+    public BinaryTreeNode<E> getLeftChild() {
         return leftChild;
     }
 
-    public void addLeftChild(BinaryTreeNode leftChild) {
+    public void addLeftChild(BinaryTreeNode<E> leftChild) {
         this.leftChild = leftChild;
     }
 
-    public BinaryTreeNode getRightChild() {
+    public BinaryTreeNode<E> getRightChild() {
         return rightChild;
     }
 
-    public void addRightChild(BinaryTreeNode rightChild) {
+    public void addRightChild(BinaryTreeNode<E> rightChild) {
         this.rightChild = rightChild;
     }
 
-    @Override public boolean equals(Object o)
-    {
-        if (this == o)
-            return true;
-        return false;
-    }
-
-    @Override public int hashCode()
-    {
-        return Objects.hash(element, leftChild, rightChild);
-    }
 }

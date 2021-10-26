@@ -1,18 +1,18 @@
 import java.util.ArrayList;
 
-public class BinaryTree {
-    private BinaryTreeNode root;
+public class BinaryTree<E extends Comparable<E>> {
+    private BinaryTreeNode<E> root;
 
     // getters and setters initial the tree root is null.
     public BinaryTree() {
         root = null;
     }
 
-    public BinaryTreeNode getRoot() {
+    public BinaryTreeNode<E> getRoot() {
         return root;
     }
 
-    public void setRoot(BinaryTreeNode root) {
+    public void setRoot(BinaryTreeNode<E> root) {
         this.root = root;
     }
     public boolean isEmpty(){
@@ -24,32 +24,32 @@ public class BinaryTree {
         return size(getRoot()) ;
     }
 
-    private int size(BinaryTreeNode node){
+    private int size(BinaryTreeNode<E> node){
         if(node==null) return 0;
         // calling size recursively for all nodes in the tree.
         else return 1+size(node.getRightChild())+size(node.getLeftChild());
     }
 
     // calling recursive contains func passing the root and element
-    public boolean contains(int element){
+    public boolean contains(E element){
         return contains(getRoot(),element);
     }
 
-    private boolean contains(BinaryTreeNode node, int element){
+    private boolean contains(BinaryTreeNode<E> node, E element){
         if(node==null) return false;
         // returns true only if current element is true.
-        if(node.getElement()==element) return true;
+        if(node.getElement().compareTo(element)==0) return true;
         // call self for left and right child.
         else return contains(node.getLeftChild(),element)||contains(node.getRightChild(),element);
 
     }
 
     //calling the recursive inOrder passing the root and empty items array.
-    public ArrayList inOrder(){
-        ArrayList list = new ArrayList<Integer>();
+    public ArrayList<E> inOrder(){
+        ArrayList<E> list = new ArrayList<E>();
         return inOrder(list,getRoot());
     }
-    private ArrayList inOrder(ArrayList list,BinaryTreeNode node){
+    private ArrayList<E> inOrder(ArrayList<E> list,BinaryTreeNode<E> node){
         // if called for a leaf child return list == add nothing.
         if(node==null){
             return list;
@@ -61,12 +61,12 @@ public class BinaryTree {
         return list;
     }
     // calling the recursive preOrder with root and empty list
-    public ArrayList preOrder(){
-        ArrayList list = new ArrayList<Integer>();
+    public ArrayList<E> preOrder(){
+        ArrayList<E> list = new ArrayList<E>();
         return preOrder(list,getRoot());
     }
 
-    private ArrayList preOrder(ArrayList list, BinaryTreeNode node){
+    private ArrayList<E> preOrder(ArrayList<E> list, BinaryTreeNode<E> node){
         // if called for a leaf child return list == add nothing.
         if(node==null){
             return list;
@@ -78,12 +78,12 @@ public class BinaryTree {
         return list;
     }
     // call the recursive brother
-    public ArrayList postOrder(){
-        ArrayList list = new ArrayList<Integer>();
+    public ArrayList<E> postOrder(){
+        ArrayList<E> list = new ArrayList<E>();
         return postOrder(list,getRoot());
 
     }
-    private ArrayList postOrder(ArrayList list, BinaryTreeNode node){
+    private ArrayList<E> postOrder(ArrayList<E> list, BinaryTreeNode<E> node){
         // if called for a leaf child return list == add nothing.
         if(node==null){
             return list;
@@ -95,20 +95,20 @@ public class BinaryTree {
         return list;
     }
     // returns level ordered items in an array.
-    public ArrayList levelOrder(){
+    public ArrayList<E> levelOrder(){
         // create a new array for node values and for discovered nodes & call the level order for the the root and the empty list of items.
-        ArrayList list = new ArrayList<Integer>();
-        ArrayList discovered = new ArrayList<BinaryTreeNode>();
+        ArrayList<E> list = new ArrayList<E>();
+        ArrayList<BinaryTreeNode<E>> discovered = new ArrayList<BinaryTreeNode<E>>();
         discovered.add(getRoot());
         return levelOrder(list,discovered);
     }
-    private ArrayList levelOrder(ArrayList list, ArrayList<BinaryTreeNode> discovered){
+    private ArrayList<E> levelOrder(ArrayList<E> list, ArrayList<BinaryTreeNode<E>> discovered){
         // if node left to discover return all already added.
         if(discovered.size()==0){
             return list;
         }
         //get oldest discovered node && remove it from the front.
-        BinaryTreeNode current = discovered.get(0);
+        BinaryTreeNode<E>current = discovered.get(0);
         discovered.remove(0);
         // if current is null go to the next one.
         if(current==null){
@@ -131,7 +131,7 @@ public class BinaryTree {
         return height(getRoot());
     }
     //height is set to be the highest number of edges from the root to a leaf. // by convention an empty tree has height -1
-    public int height(BinaryTreeNode node){
+    public int height(BinaryTreeNode<E>node){
         if(node==null) return -1;
         int leftH = height(node.getLeftChild());
         int rightH = height(node.getRightChild());
