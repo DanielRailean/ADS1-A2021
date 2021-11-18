@@ -20,11 +20,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b1c36248-489f-436d-b560-9c79e814f56d" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../AlgorithmDesign/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/BinarySearchTreeNode.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SudokuSolver/src/SudokuFull.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SudokuSolver/src/SudokuSmallSquare.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SudokuSolver/test/SudokuArrayTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Test/AVLTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AVLNode.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AVLTree.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/PrintAVL.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BinarySearchTree.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BinarySearchTree.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BinaryTreeNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BinaryTreeNode.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,13 +73,15 @@
     </key>
   </component>
   <component name="RunManager" selected="JUnit.All in Assignment1">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="class" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -147,6 +152,9 @@
       <workItem from="1634712444243" duration="26183000" />
       <workItem from="1635229522101" duration="49000" />
       <workItem from="1635229593361" duration="11204000" />
+      <workItem from="1635491920047" duration="620000" />
+      <workItem from="1636451827350" duration="592000" />
+      <workItem from="1637053869201" duration="1327000" />
     </task>
     <servers />
   </component>
@@ -165,6 +173,32 @@
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
+  <component name="WindowStateProjectService">
+    <state x="642" y="134" key="#com.intellij.ide.util.MemberChooser" timestamp="1637055036432">
+      <screen x="0" y="0" width="1676" height="902" />
+    </state>
+    <state x="642" y="134" key="#com.intellij.ide.util.MemberChooser/0.0.1676.902@0.0.1676.902" timestamp="1637055036432" />
+    <state width="795" height="232" key="GridCell.Tab.0.bottom" timestamp="1635493915163">
+      <screen x="1920" y="0" width="1676" height="902" />
+    </state>
+    <state width="795" height="232" key="GridCell.Tab.0.bottom/0.0.1676.902/1920.0.1676.902@1920.0.1676.902" timestamp="1635493915163" />
+    <state width="795" height="232" key="GridCell.Tab.0.center" timestamp="1635493915163">
+      <screen x="1920" y="0" width="1676" height="902" />
+    </state>
+    <state width="795" height="232" key="GridCell.Tab.0.center/0.0.1676.902/1920.0.1676.902@1920.0.1676.902" timestamp="1635493915163" />
+    <state width="795" height="232" key="GridCell.Tab.0.left" timestamp="1635493915163">
+      <screen x="1920" y="0" width="1676" height="902" />
+    </state>
+    <state width="795" height="232" key="GridCell.Tab.0.left/0.0.1676.902/1920.0.1676.902@1920.0.1676.902" timestamp="1635493915163" />
+    <state width="795" height="232" key="GridCell.Tab.0.right" timestamp="1635493915163">
+      <screen x="1920" y="0" width="1676" height="902" />
+    </state>
+    <state width="795" height="232" key="GridCell.Tab.0.right/0.0.1676.902/1920.0.1676.902@1920.0.1676.902" timestamp="1635493915163" />
+    <state x="500" y="190" width="672" height="678" key="search.everywhere.popup" timestamp="1637054883957">
+      <screen x="0" y="0" width="1676" height="902" />
+    </state>
+    <state x="500" y="190" width="672" height="678" key="search.everywhere.popup/0.0.1676.902@0.0.1676.902" timestamp="1637054883957" />
+  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
@@ -172,16 +206,6 @@
           <properties class="java.lang.NullPointerException" package="java.lang" />
           <option name="timeStamp" value="1" />
         </breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/BinarySearchTree.java</url>
-          <line>104</line>
-          <option name="timeStamp" value="9" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/BinarySearchTree.java</url>
-          <line>109</line>
-          <option name="timeStamp" value="10" />
-        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <pin-to-top-manager>

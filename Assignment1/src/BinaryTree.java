@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class BinaryTree<E extends Comparable<E>> {
+public class BinaryTree<E> {
     private BinaryTreeNode<E> root;
 
     // getters and setters initial the tree root is null.
@@ -38,7 +38,7 @@ public class BinaryTree<E extends Comparable<E>> {
     private boolean contains(BinaryTreeNode<E> node, E element){
         if(node==null) return false;
         // returns true only if current element is true.
-        if(node.getElement().compareTo(element)==0) return true;
+        if(node.getElement().equals(element)) return true;
         // call self for left and right child.
         else return contains(node.getLeftChild(),element)||contains(node.getRightChild(),element);
 

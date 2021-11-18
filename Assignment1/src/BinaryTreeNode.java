@@ -1,6 +1,6 @@
 import java.util.Objects;
 
-public class  BinaryTreeNode<E extends Comparable<E>>{
+public class  BinaryTreeNode<E>{
 
     // element contains a value , may be switched with a Generic that implements the comparable interface.
     // also contains reference to left and right child.
