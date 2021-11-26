@@ -20,14 +20,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b1c36248-489f-436d-b560-9c79e814f56d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../AlgorithmDesign/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/BinarySearchTreeNode.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../SudokuSolver/src/SudokuFull.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../SudokuSolver/src/SudokuSmallSquare.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../SudokuSolver/test/SudokuArrayTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Assignment2/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Assignment2/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Assignment2/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Assignment2/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Assignment2/Assignment2.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BinarySearchTree.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BinarySearchTree.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BinaryTreeNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BinaryTreeNode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assignment1.zip" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,19 +72,6 @@
     </key>
   </component>
   <component name="RunManager" selected="JUnit.All in Assignment1">
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="All in Assignment1" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Assignment1" />
       <option name="PACKAGE_NAME" value="" />
@@ -155,6 +141,9 @@
       <workItem from="1635491920047" duration="620000" />
       <workItem from="1636451827350" duration="592000" />
       <workItem from="1637053869201" duration="1327000" />
+      <workItem from="1637225388590" duration="419000" />
+      <workItem from="1637229363890" duration="37000" />
+      <workItem from="1637914248203" duration="1252000" />
     </task>
     <servers />
   </component>
@@ -178,22 +167,34 @@
       <screen x="0" y="0" width="1676" height="902" />
     </state>
     <state x="642" y="134" key="#com.intellij.ide.util.MemberChooser/0.0.1676.902@0.0.1676.902" timestamp="1637055036432" />
-    <state width="795" height="232" key="GridCell.Tab.0.bottom" timestamp="1635493915163">
-      <screen x="1920" y="0" width="1676" height="902" />
+    <state x="617" y="192" key="FileChooserDialogImpl" timestamp="1637916036977">
+      <screen x="0" y="0" width="1676" height="902" />
+    </state>
+    <state x="617" y="192" key="FileChooserDialogImpl/0.0.1676.902@0.0.1676.902" timestamp="1637916036977" />
+    <state width="922" height="234" key="GridCell.Tab.0.bottom" timestamp="1637225811761">
+      <screen x="0" y="0" width="1676" height="902" />
     </state>
     <state width="795" height="232" key="GridCell.Tab.0.bottom/0.0.1676.902/1920.0.1676.902@1920.0.1676.902" timestamp="1635493915163" />
-    <state width="795" height="232" key="GridCell.Tab.0.center" timestamp="1635493915163">
-      <screen x="1920" y="0" width="1676" height="902" />
+    <state width="922" height="234" key="GridCell.Tab.0.bottom/0.0.1676.902@0.0.1676.902" timestamp="1637225811761" />
+    <state width="922" height="234" key="GridCell.Tab.0.center" timestamp="1637225811761">
+      <screen x="0" y="0" width="1676" height="902" />
     </state>
     <state width="795" height="232" key="GridCell.Tab.0.center/0.0.1676.902/1920.0.1676.902@1920.0.1676.902" timestamp="1635493915163" />
-    <state width="795" height="232" key="GridCell.Tab.0.left" timestamp="1635493915163">
-      <screen x="1920" y="0" width="1676" height="902" />
+    <state width="922" height="234" key="GridCell.Tab.0.center/0.0.1676.902@0.0.1676.902" timestamp="1637225811761" />
+    <state width="922" height="234" key="GridCell.Tab.0.left" timestamp="1637225811761">
+      <screen x="0" y="0" width="1676" height="902" />
     </state>
     <state width="795" height="232" key="GridCell.Tab.0.left/0.0.1676.902/1920.0.1676.902@1920.0.1676.902" timestamp="1635493915163" />
-    <state width="795" height="232" key="GridCell.Tab.0.right" timestamp="1635493915163">
-      <screen x="1920" y="0" width="1676" height="902" />
+    <state width="922" height="234" key="GridCell.Tab.0.left/0.0.1676.902@0.0.1676.902" timestamp="1637225811761" />
+    <state width="922" height="234" key="GridCell.Tab.0.right" timestamp="1637225811761">
+      <screen x="0" y="0" width="1676" height="902" />
     </state>
     <state width="795" height="232" key="GridCell.Tab.0.right/0.0.1676.902/1920.0.1676.902@1920.0.1676.902" timestamp="1635493915163" />
+    <state width="922" height="234" key="GridCell.Tab.0.right/0.0.1676.902@0.0.1676.902" timestamp="1637225811761" />
+    <state x="285" y="71" key="new project wizard" timestamp="1637916039845">
+      <screen x="0" y="0" width="1676" height="902" />
+    </state>
+    <state x="285" y="71" key="new project wizard/0.0.1676.902@0.0.1676.902" timestamp="1637916039845" />
     <state x="500" y="190" width="672" height="678" key="search.everywhere.popup" timestamp="1637054883957">
       <screen x="0" y="0" width="1676" height="902" />
     </state>
