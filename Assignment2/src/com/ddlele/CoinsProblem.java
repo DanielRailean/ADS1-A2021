@@ -8,6 +8,14 @@ public class CoinsProblem
 
   int amount;
   List<Integer> coins;
+  int result = -1;
+
+  public int getResult()
+  {
+    if(result ==-1)
+      solve();
+    return result;
+  }
 
   public CoinsProblem(int amount)
   {
@@ -57,7 +65,7 @@ public class CoinsProblem
     if(knownMin[amount]==Integer.MAX_VALUE)
       return -1;
 
+    result = knownMin[amount];
     return knownMin[amount];
-
   }
 }
